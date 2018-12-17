@@ -1,9 +1,17 @@
 const MIN_DISTANCE = 10;
+const inXl = location.href.indexOf('channel=xl') > -1;
+const isLandscape = window.innerWidth > window.innerHeight;
 function getDirection(x, y) {
   if (x > y && x > MIN_DISTANCE) {
+    if (inXl && isLandscape) {
+      return 'vertical';
+    }
     return 'horizontal';
   }
   if (y > x && y > MIN_DISTANCE) {
+    if (inXl && isLandscape) {
+      return 'horizontal';
+    }
     return 'vertical';
   }
   return '';
